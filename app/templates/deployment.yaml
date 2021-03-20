@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: app:dev
+        env:
+        - name: DATABASE_URL
+          value: postgres://postgres:postgres@app-postgresql:5432/example_dev
+        - name: SECRET_KEY_BASE
+          value: "mWwrEqegM+BRDhOQ8G27fWYST2F17XgNTmTLg5OH92QLa9obBvnQChnbPX6Lve8K"
+        ports:
+        - containerPort: 80

@@ -1,4 +1,4 @@
-version: '3.3'
+version: "3.3"
 services:
   example_app:
     image: app:dev
@@ -21,7 +21,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      PSQL_TRUST_LOCALNET: 'true'
+      PSQL_TRUST_LOCALNET: "true"
       ENCODING: UTF8
     image: postgres:9.6
     healthcheck:

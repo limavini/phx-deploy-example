@@ -1,0 +1,12 @@
+dependencies:
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.3.13
+- name: kube-prometheus
+  repository: https://charts.bitnami.com/bitnami
+  version: 4.2.0
+- name: grafana
+  repository: https://charts.bitnami.com/bitnami
+  version: 5.2.5
+digest: sha256:cfcbb3e17b1e0ffda368673a86680a02897a05c00b55335e67753c54f85f287b
+generated: "2021-03-19T08:02:57.829611584-03:00"
