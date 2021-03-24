@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-config
+data:
+  grafana.ini: |-
+    [server]
+    domain = coda-ex.brazilsouth.cloudapp.azure.com/
+    root_url = https://coda-ex.brazilsouth.cloudapp.azure.com/grafana/

@@ -7,6 +7,8 @@ kube-prometheus:
   prometheus:
     scrapeInterval: 5s
     evaluationInterval: 5s
+    routePrefix: /
+    externalUrl: https://coda-ex.brazilsouth.cloudapp.azure.com/prometheus
     additionalScrapeConfigs:
       enabled: true
       type: internal
@@ -28,6 +30,12 @@ grafana:
     password: admin
   ldap:
     allowSignUp: false
+  config:
+    useGrafanaIniFile: true
+    grafanaIniConfigMap: grafana-config
+  datasources:
+    secretName: datasource-secret
+# this host can be localhost
 # Default values for bpp.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
@@ -35,7 +43,7 @@ grafana:
 replicaCount: 1
 
 image:
-  repository: app
+  repository: codaacr.azurecr.io/app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "dev"
@@ -70,7 +78,7 @@ securityContext:
 
 service:
   type: ClusterIP
-  port: 4000
+  port: 80
 
 ingress:
   enabled: false
