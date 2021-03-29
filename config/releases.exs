@@ -28,6 +28,7 @@ config :example_web, ExampleWeb.Endpoint,
   # Since Mix is a build tool it will not be available on production environments
   # This line of code ensures the server will be started
   server: true,
+  url: [host: System.get_env("HOST") || throw("Missing HOST value"), port: 4000],
   http: [
     port: String.to_integer(System.get_env("PORT") || "4000"),
     transport_options: [socket_opts: [:inet6]]

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linx
+  labels:
+    app: linx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linx
+  template:
+    metadata:
+      labels:
+        app: linx
+    spec:
+      containers:
+        - name: linx
+          image: codaacr.azurecr.io/linx:dev
+          env:
+            - name: PORT
+              value: "8000"
+          ports:
+            - containerPort: 8000
